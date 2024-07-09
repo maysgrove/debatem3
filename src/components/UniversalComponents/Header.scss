@@ -1,0 +1,98 @@
+$myBGColor: #173146;
+$myHighlightColor-orange: orange;
+$myHighlightColor-LightBlue: lightblue;
+
+* {
+	margin: 0px;
+	padding: 0px;
+	color: white;
+	font-family: "Oswald";
+	color: rgb(255, 255, 255);
+	text-decoration: none;
+	list-style-type: none;
+	outline: none;
+}
+
+// HEADER CONTAINER
+header {
+	background-color: #0e0f14;
+	color: white;
+	height: fit-content;
+	display: flex;
+	height: 100%;
+}
+
+#headerBarsLogoInput {
+	display: flex;
+	align-items: center;
+}
+
+#iconLogoContainer {
+	display: flex; justify-content: center; align-items: center;
+	width: 200px;
+	height: 100%;
+}
+
+#dropdownToggle i {
+	color: #fff;
+	cursor: pointer;
+}
+
+img {
+	margin-right: 10px;
+	margin-left: 10px;
+	display: none;
+}
+
+#logoTxt {
+	color: rgb(255, 255, 255);
+	display: block;
+	font-size: 2.5rem;
+}
+
+input {
+	height: 40px;
+	border-radius: 10px;
+	padding-left: 10px;
+	background-color: rgb(255, 255, 255);
+	border: 1px solid white;
+	color: rgb(0, 0, 0);
+	font-size: 1rem;
+	font-weight: 600;
+}
+
+input::placeholder {
+	color: rgb(0, 0, 0);
+	font-size: 1rem;
+	font-weight: 600;
+}
+
+// HEADER LINK CONTAINER
+
+
+
+// DROPDOWN
+#navbar {
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-direction: column;
+	position: absolute;
+	left: -300px;
+	width: 200px;
+	// height is showing problems with overflow, transparent is fine for n
+	background-color: #00000028;
+	box-shadow: 0 40 60px rgba(0, 0, 0, 0.1);
+	transition: 0.3s ease-in-out;
+}
+
+#navbar.active {
+	left: 0px;
+}
+
+
+#sidebarContainer {
+	display: block;
+	width: 100%;
+	height: 100%;
+}

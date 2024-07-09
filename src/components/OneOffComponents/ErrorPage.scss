@@ -1,0 +1,46 @@
+$myBGColor: #173146;
+$myHighlightColor: orange;
+
+* {
+	margin: 0px;
+	padding: 0px;
+	color: white;
+	font-family: "Oswald";
+	color: rgb(255, 255, 255);
+	text-decoration: none;
+	list-style-type: none;
+}
+
+#ErrorPageContainer {
+	background-color: $myBGColor;
+	height: 100vh;
+	display: flex; justify-content: center; align-items: center;
+	flex-direction: column;
+
+
+	h2 {
+		margin-top: 50px;
+		font-size: 3rem;
+	}
+
+	#major {
+		font-size: 3rem;
+
+		span {
+			color: $myHighlightColor;
+			text-decoration-line: underline;
+		}
+	}
+
+	button {
+		background-color: $myHighlightColor;
+		padding: 10px;
+		font-size: 2rem;
+		border-radius: 20px;
+		border: 1px solid black;
+		box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.417);
+		margin-top: 30px;
+	}
+
+}
+

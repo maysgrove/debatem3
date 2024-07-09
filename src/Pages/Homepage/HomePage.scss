@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+$myBGColor: #173146;
+$myHighlightColor-orange: orange;
+$myHighlightColor-LightBlue: lightblue;
+
+
+* {
+	margin: 0px;
+	padding: 0px;
+	color: white;
+	font-family: "Oswald";
+	text-decoration: none;
+	list-style-type: none;
+}
+
+.headerGrid { grid-area: header; }
+.mobileSidebar { grid-area: mobileSidebar; }
+.sidebar { grid-area: sidebar; }
+.infoPanel { grid-area: infoPanel; }
+.mainGrid { grid-area: main; }
+.footerGrid { grid-area: footer; }
+
+.grid-container {
+	display: grid;
+	grid-template-areas:
+		'header header header header header header'
+		'sidebar main main main main infoPanel'
+		'sidebar footer footer footer footer infoPanel';
+	background-color: $myBGColor;
+	grid-template-rows: 62px auto 50px;
+	grid-template-columns: 200px auto auto auto auto 200px;
+	height: 100vh; width: 100vw;
+	overflow: hidden;
+}
+
+.mobileSidebar {
+	display: none;
+}
+
+
+.sidebar, .infoPanel {
+	background-color: green;
+}
+
+.grid-container>div {
+	border: 1px solid black;
+}
+
+@media screen and (max-width: 830px) {
+	.infoPanel {
+		display: none;
+	}
+	.grid-container {
+		grid-template-areas:
+		'header header header header header header'
+		'sidebar main main main main main'
+		'sidebar footer footer footer footer footer';
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.infoPanel {
+		display: none;
+	}
+	.sidebar {
+		display: none;
+	}
+	.mobileSidebar {
+		display: block;
+	}
+	.grid-container {
+		grid-template-areas:
+		'header header header header header header'
+		'mobileSidebar main main main main main'
+		'mobileSidebar footer footer footer footer footer';
+
+		grid-template-columns: 80px auto auto auto auto 200px;
+	}
+	
+}
+
+
+
