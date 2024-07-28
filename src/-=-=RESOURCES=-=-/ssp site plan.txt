@@ -1,0 +1,38 @@
+ssp site plan
+
+How to fight the omegle nude/racist/terrible problem?
+- could have multiple confirmation? email auth, mobile auth, linkedin auth.
+- will ip ban first time offenders 
+- mods that scan thru debates? 
+- maybe u could the streams thru an ai to determine wrong situations? 
+
+SITE FUNCTIONS {
+   - user POINTS	
+   - user win/loss ratio
+   - being able to follow other users
+}
+
+users over certain amount of points are authorized to judge other debates on topics they have high reputation on
+users over certain amount of points are authorized to make account view changes.
+
+
+INTERACTIVE DISPLAYS {
+   - main displays that shows leaderboard of popular debater
+   - POINTS
+   - as a way of determining how society feels about a certain debate topic I should add a small bar under each debate that shows how society
+     leans towards a topic. Ex. Democrat 20% | independent 4% | republican 90%; (I should make this interchangeable to user options)
+}
+
+
+
+MAIN SITE FUNCTIONALITY 
+-planned video debate{
+   - 1v1, 2v2, 3v3
+   - certified judge overview at a later date.
+   - point system for valid 
+}
+- auto video debates {
+   - can search auto 1v1s 
+}
+
+-news as a second 

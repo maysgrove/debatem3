@@ -1,6 +1,3 @@
-import './mobileSidebar.scss'
-
-
 export default function MobileSidebar() {
 //   const [open, setOpen] = React.useState(false);
 

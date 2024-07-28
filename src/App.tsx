@@ -1,17 +1,25 @@
+/* 
+PRIMARY_1 #ffa500 | SECONDARY_1 #00ccff | PRIMARY_BG: #4a4ae7 
+PRIMARY_2 #ff0055   #292929                      OLD_BG #40414b;
+PRIMARY_3 #adff2f                         OLD_OVERLAY rgba(0, 0, 0, 0.404);
+*/
+
 // Normal Imports
 import { Route, Routes } from "react-router-dom";
 
 // Routes
-import { Homepage } from "./Pages/Homepage/HomePage";
-import AdminPage from "./Pages/Adminpage/AdminPage";
-import { ErrorPage } from "./components/OneOffComponents/ErrorPage";
+import { Dashboard } from "./Pages/Dashboard";
+import { ErrorPage } from "./Pages/ErrorPage";
+import { DebateDefault } from "./Pages/DebateDefault";
+import { LandingPage } from "./Pages/LandingPage";
 
 export const App = () => {
   return (
       <div id="BACKGROUND">
         <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/AdminPage" element={<AdminPage />} />
+          <Route path="/Dashboard" element={<Dashboard />} />
+          <Route path="/" element={<LandingPage />} />
+			 <Route path="/DebateDefault" element={<DebateDefault />} />
 			 <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>
