@@ -4,28 +4,6 @@ PRIMARY_2 #ff0055   #292929                      OLD_BG #40414b;
 PRIMARY_3 #adff2f                         OLD_OVERLAY rgba(0, 0, 0, 0.404);
 */
 
-
-/* 
-<Sidebar />
-<UniversalHeader />
-<UniversalFooter />
-
-<div className="homepageHeader">
-<div id="homepageLinkContainer">
-<ul>
-	<Link to="/"><button>Home</button></Link>
-	<Link to="/Dashboard"><button>Dashboard</button></Link>
-	<Link to="/DebateDefault"><button>DefaultDebate</button></Link>
-	<Link to="*"><button>error page</button></Link>
-</ul>
-</div>
-	<div id="homepageHeaderContent">
-	<div id="welcomeLogo">DEBATE ME</div>
-	<button id="createAccount">CREATE AN ACCOUNT</button>
-	</div>
-</div> 
-*/
-
 import React, { useState } from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { MdOutlineDashboard } from "react-icons/md";
