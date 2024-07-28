@@ -13,6 +13,8 @@ import { AiOutlineUser, AiOutlineHeart } from "react-icons/ai";
 import { FiMessageSquare, FiFolder, FiShoppingCart } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
+let userName = 'Guest'
+
 const Sidebar = () => {
   const menus = [
     { name: "dashboard", link: "/", icon: MdOutlineDashboard },
@@ -31,7 +33,7 @@ const Sidebar = () => {
 
   React.useEffect(() => {
 	const handleResize = () => {
-	  if (window.innerWidth > 1280) {
+	  if (window.innerWidth > 1200) {
 		 setOpen(true);
 	  } else {
 		 setOpen(false);
@@ -48,40 +50,39 @@ const Sidebar = () => {
 
   const [open, setOpen] = useState(!true);
 
-  return (
-    <section className="flex gap-6 h-full">
-      <div
-			className={`bg-[#292929] ${
-				open ? "w-56" : "w-16"
-			} duration-500 text-gray-100 px-4`}>
-{/* dropdown icon */}
-		  <div className="flex flex-col lg:flex-row justify-between">
-				<div className="py-3 flex justify-end">
+	return (
+	<section className="flex gap-6 h-full">
+		<div className={`bg-[#292929] ${open ? "w-56" : "w-16"} duration-500 text-gray-100 px-4`}>
+			<div className="flex flex-col lg:flex-row justify-between">
+				<div className="py-3 flex justify-start">
 					<HiMenuAlt3 size={26} className="cursor-pointer" onClick={() => setOpen(!open)}/>
+					<h2
+						className={`whitespace-pre duration-500 ${
+						!open && "opacity-0 translate-x--28 overflow-hidden"}`}>
+							<h2>Welcome {userName}</h2>
+					</h2>
 				</div>
-		  </div>
-{/* list items */}
-        <div className="mt-4 flex flex-col gap-4 relative">
-          {menus?.map((menu, i) => (
+			</div>
+			<div className="mt-4 flex flex-col gap-4 relative">
+			{menus?.map((menu, i) => (
 				<Link to={menu?.link} key={i} className={` $ { menu?.margin && "mt-5"} group flex items-center text-sm text-[#adff2f] gap-3.5 font-medium p-2 hover:bg-gray-800 rounded-md`}>
 					<div>{React.createElement(menu?.icon, { size: "20" })}</div>
-					<h2 style={{transitionDelay: `${i + 3}00ms`,}}
-					className={`whitespace-pre duration-500 ${
-					!open && "opacity-0 translate-x-28 overflow-hidden"}`}>
-					{menu?.name}
+					<h2 style={{transitionDelay: `${i + 3}40ms`,}}
+						className={`whitespace-pre duration-500 ${
+						!open && "opacity-0 translate-x-28 overflow-hidden"}`}>
+						{menu?.name}
 					</h2>
 					<h2 className={`${ open && "hidden"
-					} absolute  left-48 bg-white font-semibold whitespace-pre text-black rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 g
-					roup-hover:py-1 group-hover:left-10 group-hover:duration-300 group-hover:w-fit  `}>
-					{menu?.name}
+						} absolute  left-48 bg-white font-semibold whitespace-pre text-black rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 g
+						roup-hover:py-1 group-hover:left-10 group-hover:duration-300 group-hover:w-fit  `}>
+						{menu?.name}
 					</h2>
 				</Link>
-			))}
-        </div>
-      </div>
-		{/* MAIN PAGE CONTENT */}
-    </section>
-  );
+				))}
+			</div>
+		</div>
+	</section>
+	);
 };
 
 export default Sidebar;
