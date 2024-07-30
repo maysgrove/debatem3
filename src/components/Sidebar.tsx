@@ -1,88 +1,59 @@
-/* 
-PRIMARY_1 #ffa500 | SECONDARY_1 #00ccff | PRIMARY_BG: #4a4ae7 
-PRIMARY_2 #ff0055   #292929                      OLD_BG #40414b;
-PRIMARY_3 #adff2f                         OLD_OVERLAY rgba(0, 0, 0, 0.404);
-*/
-
-import React, { useState } from "react";
-import { HiMenuAlt3 } from "react-icons/hi";
-import { MdOutlineDashboard } from "react-icons/md";
-import { RiSettings4Line } from "react-icons/ri";
-import { TbReportAnalytics } from "react-icons/tb";
-import { AiOutlineUser, AiOutlineHeart } from "react-icons/ai";
-import { FiMessageSquare, FiFolder, FiShoppingCart } from "react-icons/fi";
+import React from "react";
 import { Link } from "react-router-dom";
+import { FcHome, FcConferenceCall, FcFeedback, FcCamcorderPro, FcOldTimeCamera, FcClapperboard, FcCustomerSupport, FcAutomatic, FcLock } from "react-icons/fc";
 
-let userName = 'Guest'
+interface SidebarProps {
+  open: boolean;
+  isLoggedIn: boolean;
+}
 
-const Sidebar = () => {
-  const menus = [
-    { name: "dashboard", link: "/", icon: MdOutlineDashboard },
-    { name: "user", link: "/", icon: AiOutlineUser },
-    { name: "messages", link: "/", icon: FiMessageSquare },
-    { name: "analytics", link: "/", icon: TbReportAnalytics, margin: true },
-    { name: "File Manager", link: "/", icon: FiFolder },
-    { name: "Cart", link: "/", icon: FiShoppingCart },
-    { name: "Saved", link: "/", icon: AiOutlineHeart, margin: true },
-    { name: "Setting", link: "/", icon: RiSettings4Line },
-  ];
+const menus = [
+  { name: "Dashboard", link: "/", icon: FcHome },
+  { name: "Friends", link: "/ErrorPage", icon: FcConferenceCall, hideWhenLoggedOut: true },
+  { name: "Messages", link: "/", icon: FcFeedback, borderBottom: true, hideWhenLoggedOut: true },
+  { name: "Start Debate", link: "/", icon: FcCamcorderPro, margin: true, hideWhenLoggedOut: true },
+  { name: "Join Debate", link: "/", icon: FcOldTimeCamera },
+  { name: "Previous Debates", link: "/", icon: FcClapperboard, borderBottom: true },
+  { name: "Help", link: "/", icon: FcCustomerSupport, margin: true },
+  { name: "Setting", link: "/", icon: FcAutomatic, hideWhenLoggedOut: true },
+];
 
-
-
-  {/* <h1 className="text-4xl my-auto font-bold text-[#ffffff]">DEBATE.ME</h1> */}
-
-  React.useEffect(() => {
-	const handleResize = () => {
-	  if (window.innerWidth > 1200) {
-		 setOpen(true);
-	  } else {
-		 setOpen(false);
-	  }
-	};
-
-	window.addEventListener('resize', handleResize);
-	console.log(`Initial screen width: ${window.innerWidth}, height: ${window.innerHeight}`);
-	// Cleanup event listener on component unmount
-	return () => {
-	  window.removeEventListener('resize', handleResize);
-	};
- }, []);
-
-  const [open, setOpen] = useState(!true);
-
-	return (
-	<section className="flex gap-6 h-full">
-		<div className={`bg-[#292929] ${open ? "w-56" : "w-16"} duration-500 text-gray-100 px-4`}>
-			<div className="flex flex-col lg:flex-row justify-between">
-				<div className="py-3 flex justify-start">
-					<HiMenuAlt3 size={26} className="cursor-pointer" onClick={() => setOpen(!open)}/>
-					<h2
-						className={`whitespace-pre duration-500 ${
-						!open && "opacity-0 translate-x--28 overflow-hidden"}`}>
-							<h2>Welcome {userName}</h2>
-					</h2>
-				</div>
-			</div>
-			<div className="mt-4 flex flex-col gap-4 relative">
-			{menus?.map((menu, i) => (
-				<Link to={menu?.link} key={i} className={` $ { menu?.margin && "mt-5"} group flex items-center text-sm text-[#adff2f] gap-3.5 font-medium p-2 hover:bg-gray-800 rounded-md`}>
-					<div>{React.createElement(menu?.icon, { size: "20" })}</div>
-					<h2 style={{transitionDelay: `${i + 3}40ms`,}}
-						className={`whitespace-pre duration-500 ${
-						!open && "opacity-0 translate-x-28 overflow-hidden"}`}>
-						{menu?.name}
-					</h2>
-					<h2 className={`${ open && "hidden"
-						} absolute  left-48 bg-white font-semibold whitespace-pre text-black rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 g
-						roup-hover:py-1 group-hover:left-10 group-hover:duration-300 group-hover:w-fit  `}>
-						{menu?.name}
-					</h2>
-				</Link>
-				))}
-			</div>
-		</div>
-	</section>
-	);
-};
+const Sidebar: React.FC<SidebarProps> = ({ open, isLoggedIn }) => (
+  <div className={`h-full flex flex-col p-4 bg-gray-800 text-white fixed transition-all duration-1000 ease-in-out ${open ? "w-56" : "w-16"} border-r-2 border-gray-700`}>
+    <div className="flex flex-col gap-2 mt-12">
+      {menus
+        .filter(menu => isLoggedIn || !menu.hideWhenLoggedOut) // Filter based on login status
+        .map((menu, index) => (
+          <React.Fragment key={index}>
+            <div className={`relative group flex items-center text-lg hover:text-white gap-3.5 font-medium px-1 py-0 h-[40px] hover:bg-gray-700 rounded-md ${menu.margin ? "mt-5" : ""}`}>
+              <Link to={menu.link} className="flex items-start w-full">
+                <div className="flex-shrink-0 mt-auto mb-auto rounded-full bg-gray-900">
+                  {React.createElement(menu.icon, { size: "20" })}
+                </div>
+                <h2 className={`ml-3 text-nowrap transition-opacity duration-300 ${open ? "opacity-100" : "opacity-0 invisible"}`}>
+                  {menu.name}
+                </h2>
+              </Link>
+              <h2 className={`absolute top-1/2 left-full transform ml-[20px] -translate-x-2 -translate-y-1/2 bg-black text-white font-semibold whitespace-nowrap rounded-md shadow-lg p-2 transition-opacity duration-300 ${open ? "hidden" : "opacity-0 group-hover:opacity-100 group-hover:block"}`}>
+                {menu.name}
+              </h2>
+            </div>
+            {menu.borderBottom && <hr className="border-gray-600" />}
+          </React.Fragment>
+        ))}
+    </div>
+    <Link to="/sign-out" className={`group flex items-center text-lg hover:text-white gap-3.5 h-[40px] font-medium py-3 mt-auto hover:bg-gray-700 rounded-md ${!isLoggedIn ? "hidden" : ""}`}>
+      <div className="flex-shrink-0">
+        {React.createElement(FcLock, { size: "35" })}
+      </div>
+      <h2 className={`ml-3 transition-opacity duration-300 ${open ? "opacity-100" : "opacity-0 invisible"}`}>
+        Sign Out
+      </h2>
+      <h2 className={`absolute bottom-[-10px] left-full transform -translate-x-2 -translate-y-1/2 bg-black text-white font-semibold whitespace-nowrap rounded-md shadow-lg p-2 transition-opacity duration-300 ${open ? "hidden" : "opacity-0 group-hover:opacity-100 group-hover:block"}`}>
+        Sign Out
+      </h2>
+    </Link>
+  </div>
+);
 
 export default Sidebar;
