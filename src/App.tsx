@@ -11,7 +11,8 @@ import { Route, Routes } from "react-router-dom";
 import { Dashboard } from "./Pages/Dashboard";
 import { ErrorPage } from "./Pages/ErrorPage";
 import { DebateDefault } from "./Pages/DebateDefault";
-import { LandingPage } from "./Pages/LandingPage";
+import LandingPage from "./Pages/LandingPage";
+import ExplorePage from "./Pages/ExplorePage";
 
 export const App = () => {
   return (
@@ -19,8 +20,9 @@ export const App = () => {
         <Routes>
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/" element={<LandingPage />} />
-			 <Route path="/DebateDefault" element={<DebateDefault />} />
-			 <Route path="*" element={<ErrorPage />} />
+			    <Route path="/DebateDefault" element={<DebateDefault />} />
+          <Route path="/ExplorePage" element={<ExplorePage />} />
+			    <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>
   );
