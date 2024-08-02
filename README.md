@@ -1,8 +1,40 @@
-# Debate.me Website
+ICONS: |✅|❌|🌃|🌠|
 
+## WELCOME TO MY SUPER SECRET PROJECT CREATED BY PT (EST. 6/15/24)
+	This project was created by Peyton "PT" Thompson on 6/15/2024 at 3:11pm EST. The goal of this project is get better. I will be documenting all of the updates and giving thoughts
+		on certain decisions. Ive never kept docs before so im gonna try with this and see how it goes. You need to know that my grammar is not my strong suit and their WILL be mistakes, you can count on that. Did you notice the missspelled word in the previous sentence? It was "their" should be "there" obviously. LOL.
+
+
+====================================================================================
+====================================================================================
+# SuperSecretProject volume 0.0.1 | 5/24/24 | 2:00am EST
+## What You Need To Know
+		- This app was created by me PT on 5/24/24 | 2:00am EST. Ive never kept docs before so im gonna try with this and see how it goes. You need to know that my grammar is not my strong suit and their WILL be mistakes, you can count on that. Did you notice the missspelled word in the previous sentence? It was "their". LOL.
+
+# Debate.me Website
+- **WELCOME:**
+		This project was created by Peyton "PT" Thompson on 6/15/2024 at 3:11pm EST. The goal of this project is get better. I will be documenting all of the updates and giving thoughts
+		on certain decisions. Ive never kept docs before so im gonna try with this and see how it goes. You need to know that my grammar is not my strong suit and their WILL be mistakes, you can count on that. Did you notice the missspelled word in the previous sentence? It was "their" should be "there" obviously. LOL.	
+		
 ## Overview
+WELCOME TO MY SUPER SECRET PROJECT CREATED BY PT (EST. 6/15/24)
 
 Welcome to the Debate.me website! This application allows users to engage in and explore various debates on different topics. It includes a modern and stylish design, with a dark theme and interactive elements that enhance user experience.
+
+## TECH STACK (dev dependencies is probably more up to date lmfao)
+
+	- You might be wondering why Im already deciding a tech stack when I dont know what I'm building. Ive been tinkering with the basics of react for awhile and its good at building great UI. Tailwind in this case. Typescript because apprently its widely used in large codebases making it easier to maintain a larger code base. Finally React Router for navigation.
+
+	THEME: Identical Sublime Text Monokai theme {I change all the time}
+	ICON THEME: Material Icon Theme {this one I change only sometimes}
+
+	EXTRA STUFF: Prettier, ES-LINT, babel/plugin-proposal-optional-chaining-assign, 
+
+	FRONTEND:
+		- REACT.JS
+		- Tailwind
+		- TYPESCRIPT
+		- REACT ROUTER 
 
 ## Components
 
@@ -54,15 +86,6 @@ The `LandingPage` component serves as the main entry point of the website, featu
 ## Development
 
 The project is built using React, TypeScript, and Tailwind CSS. It features modular components and responsive design principles to create a seamless user experience.
-
-## Installation
-
-To set up the project locally, follow these steps:
-1. Clone the repository: git clone https://github.com/your-repo/debate-me.git
-2. Navigate to the project directory: cd debate-me
-3. Install dependencies: npm install
-4. Start the development server: npm run dev
-
 
 ## Contributing
 
