@@ -1,40 +1,34 @@
-ICONS: |✅|❌|🌃|🌠|
-
 ## WELCOME TO MY SUPER SECRET PROJECT CREATED BY PT (EST. 6/15/24)
-	This project was created by Peyton "PT" Thompson on 6/15/2024 at 3:11pm EST. The goal of this project is get better. I will be documenting all of the updates and giving thoughts
-		on certain decisions. Ive never kept docs before so im gonna try with this and see how it goes. You need to know that my grammar is not my strong suit and their WILL be mistakes, you can count on that. Did you notice the missspelled word in the previous sentence? It was "their" should be "there" obviously. LOL.
 
-
-====================================================================================
-====================================================================================
-# SuperSecretProject volume 0.0.1 | 5/24/24 | 2:00am EST
-## What You Need To Know
-		- This app was created by me PT on 5/24/24 | 2:00am EST. Ive never kept docs before so im gonna try with this and see how it goes. You need to know that my grammar is not my strong suit and their WILL be mistakes, you can count on that. Did you notice the missspelled word in the previous sentence? It was "their". LOL.
-
-# Debate.me Website
-- **WELCOME:**
-		This project was created by Peyton "PT" Thompson on 6/15/2024 at 3:11pm EST. The goal of this project is get better. I will be documenting all of the updates and giving thoughts
-		on certain decisions. Ive never kept docs before so im gonna try with this and see how it goes. You need to know that my grammar is not my strong suit and their WILL be mistakes, you can count on that. Did you notice the missspelled word in the previous sentence? It was "their" should be "there" obviously. LOL.	
-		
-## Overview
-WELCOME TO MY SUPER SECRET PROJECT CREATED BY PT (EST. 6/15/24)
-
-Welcome to the Debate.me website! This application allows users to engage in and explore various debates on different topics. It includes a modern and stylish design, with a dark theme and interactive elements that enhance user experience.
+This project was created by Peyton "PT" Thompson on 6/15/2024 at 3:11pm EST. The goal of this project is to get better. I will be documenting all of the updates and giving thoughts on certain decisions. I've never kept docs before, so I'm gonna try with this and see how it goes. You need to know that my grammar is not my strong suit and there WILL be mistakes, you can count on that. Did you notice the misspelled word in the previous sentence? It was "their," it should be "there" obviously. LOL.
 
 ## TECH STACK (dev dependencies is probably more up to date lmfao)
 
-	- You might be wondering why Im already deciding a tech stack when I dont know what I'm building. Ive been tinkering with the basics of react for awhile and its good at building great UI. Tailwind in this case. Typescript because apprently its widely used in large codebases making it easier to maintain a larger code base. Finally React Router for navigation.
+You might be wondering why I'm already deciding a tech stack when I don't know what I'm building. I've been tinkering with the basics of React for a while, and it's good at building great UI. SASS or SCSS in this case is good because I've read that once CSS files get too big, it can cause issues, and the processing of SCSS files into CSS files is better. TypeScript because apparently, it's widely used in large codebases, making it easier to maintain a larger code base. Finally, React Router for navigation.
 
-	THEME: Identical Sublime Text Monokai theme {I change all the time}
-	ICON THEME: Material Icon Theme {this one I change only sometimes}
+- **THEME:** Identical Sublime Text Monokai theme {I change all the time}
+- **ICON THEME:** Material Icon Theme {this one I change only sometimes}
 
-	EXTRA STUFF: Prettier, ES-LINT, babel/plugin-proposal-optional-chaining-assign, 
+**EXTRA STUFF:**
+- Prettier
+- ESLint
+- babel/plugin-proposal-optional-chaining-assign
 
-	FRONTEND:
-		- REACT.JS
-		- Tailwind
-		- TYPESCRIPT
-		- REACT ROUTER 
+**FRONTEND:**
+- REACT.JS
+- SASS
+- TYPESCRIPT
+- REACT ROUTER
+- React Three Fiber
+
+**BACKEND:**
+- NOT DECIDED YET
+
+# Debate.me Website
+
+## Overview
+
+Welcome to the Debate.me website! This application allows users to engage in and explore various debates on different topics. It includes a modern and stylish design, with a dark theme and interactive elements that enhance user experience.
 
 ## Components
 
@@ -82,15 +76,3 @@ The `LandingPage` component serves as the main entry point of the website, featu
 - **Search Functionality:** The search bar in the header allows users to find content quickly and efficiently.
 - **Modals:** Includes modals for user sign-in/sign-up and banning users, with smooth animations and user-friendly design.
 - **Responsive Design:** Ensures a consistent experience across different screen sizes, including horizontal and vertical carousels for debate categories.
-
-## Development
-
-The project is built using React, TypeScript, and Tailwind CSS. It features modular components and responsive design principles to create a seamless user experience.
-
-## Contributing
-
-If you would like to contribute to the project, please fork the repository and submit a pull request with your changes. We welcome contributions and feedback!
-
-## License
-
-Private. 
