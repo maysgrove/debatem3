@@ -16,10 +16,9 @@ Welcome to the Debate.me website! This application allows users to engage in and
 
 **FRONTEND:**
 - REACT.JS
-- SASS
+- TAILWIND
 - TYPESCRIPT
 - REACT ROUTER
-- React Three Fiber
 
 **BACKEND:**
 - NOT DECIDED YET
