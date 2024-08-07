@@ -5,7 +5,11 @@ import {
   FcClapperboard, FcCustomerSupport, FcAutomatic
 } from 'react-icons/fc';
 
-const UniversalFooter: React.FC = () => {
+interface FooterProps {
+  sidebarOpen: boolean;
+}
+
+const Footer: React.FC<FooterProps> = ({ sidebarOpen }) => {
   const FooterCommunityGroup = [
     { name: "Dashboard", link: "/", icon: FcHome },
     { name: "Friends", link: "/ErrorPage", icon: FcConferenceCall },
@@ -43,7 +47,11 @@ const UniversalFooter: React.FC = () => {
   const FooterLegalColumns = createColumns(FooterLegalGroup, 3);
 
   return (
-    <footer className="bg-gray-800 text-white py-4">
+    <footer
+      className={`bg-gray-800 text-white py-4 transition-transform duration-300 ease-in-out ${
+        sidebarOpen ? 'pl-56' : 'pl-16'
+      }`}
+    >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {/* Dashboard & Communication Links */}
@@ -143,4 +151,4 @@ const UniversalFooter: React.FC = () => {
   );
 };
 
-export default UniversalFooter;
+export default Footer;

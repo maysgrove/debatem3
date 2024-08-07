@@ -1,9 +1,6 @@
-
-// UserInfoModal.tsx
-
 import React, { useRef, useEffect } from "react";
 
-interface UserInfoModalProps {
+interface TutorialProps {
   user: {
     DEBATE_NAME: string;
     STREAMER_NAME: string;
@@ -13,7 +10,7 @@ interface UserInfoModalProps {
   onClose: () => void;
 }
 
-const UserInfoModal: React.FC<UserInfoModalProps> = ({ user, onClose }) => {
+const Tutorial: React.FC<TutorialProps> = ({ user, onClose }) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
   // Handle click outside the modal to close it
@@ -62,4 +59,4 @@ const UserInfoModal: React.FC<UserInfoModalProps> = ({ user, onClose }) => {
   );
 };
 
-export default UserInfoModal;
+export default Tutorial;
