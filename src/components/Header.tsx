@@ -17,32 +17,31 @@ const Header: React.FC<UniversalHeaderProps> = ({ sidebarOpen, isDarkMode, toggl
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full flex items-center justify-between ${
-        isDarkMode ? 'bg-darkMode text-white' : 'bg-lightMode text-black'
-      } shadow-[inset_0_0px_3px_rgba(0,0,0,0.6)] px-4 py-2 h-[60px] transition-transform duration-300 ease-in-out ${
+      className={`fixed top-0 left-0 h-[60px] w-full flex items-center justify-between ${
+        isDarkMode ? 'bg-darkModeHeader text-white' : 'bg-gray-100 text-black'
+      } shadow-[inset_0_0px_3px_rgba(0,0,0,0.6)] px-4 py-2 transition-transform duration-300 ease-in-out ${
         sidebarOpen ? 'pl-60' : 'pl-20'
       }`}
       style={{ zIndex: 11 }}
     >
-      <h1 className="text-2xl lg:text-3xl font-bold">
+      <h1 className="text-2xl lg:text-3xl font-semibold">
         DEBATE.ME
       </h1>
       <div className="flex-grow flex items-center mx-2">
         <input
           type="text"
           placeholder="Search"
-          className={`h-8 w-full md:w-[80%] lg:w-[60%] border rounded-md pl-2 ${
+          className={`h-8 w-full md:w-[60%] lg:w-[50%] border rounded-md pl-2 ${
             isDarkMode
-              ? 'bg-[#00000071] text-white border-white'
-              : 'bg-[#ffffff71] text-black border-black'
+              ? 'bg-gray-700 text-white border-gray-500'
+              : 'bg-white text-black border-gray-300'
           } text-sm lg:text-base`}
         />
       </div>
       <div className="flex items-center space-x-4">
         <button
           onClick={toggleModal}
-          className="bg-orange-500 text-nowrap text-white font-bold px-3 lg:px-4 h-8 lg:h-10 rounded text-xs lg:text-base hover:bg-[#000] transition-colors duration-300"
-        >
+          className={`font-bold px-3 lg:px-4 h-8 text-nowrap lg:h-10 rounded text-md lg:text-base transition-colors duration-300 ${ isDarkMode ? 'text-white' : 'text-black'}`} >
           Create Account
         </button>
         <button
@@ -52,9 +51,9 @@ const Header: React.FC<UniversalHeaderProps> = ({ sidebarOpen, isDarkMode, toggl
           title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'} // Tooltip
         >
           {isDarkMode ? (
-            <FaSun className="text-yellow-500" size={24} />
+            <FaSun className="text-yellow-400" size={24} />
           ) : (
-            <FaMoon className="text-gray-800" size={24} />
+            <FaMoon className="text-gray-700" size={24} />
           )}
         </button>
       </div>

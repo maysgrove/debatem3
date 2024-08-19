@@ -12,17 +12,18 @@ import { Dashboard } from "./Pages/Dashboard";
 import { ErrorPage } from "./Pages/ErrorPage";
 import { DebateDefault } from "./Pages/DebateDefault";
 import LandingPage from "./Pages/LandingPage";
+import './main.css';
 
 export const App = () => {
   return (
-      <div id="BACKGROUND">
-        <Routes>
-          <Route path="/Dashboard" element={<Dashboard />} />
-          <Route path="/" element={<LandingPage />} />
-			    <Route path="/DebateDefault" element={<DebateDefault />} />
-			    <Route path="*" element={<ErrorPage />} />
-        </Routes>
-      </div>
+    <div id="BACKGROUND">
+      <Routes>
+        <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/DebateDefault" element={<DebateDefault />} />
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
+    </div>
   );
 }
 

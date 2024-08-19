@@ -8,22 +8,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: {
-          // Define your primary colors here
-        },
-        secondary: {
-          // Define your secondary colors here
-        },
-        gray: {
-          // Define additional gray shades here
-        },
-        darkMode: '#151515',     // Additional dark color
-        lightMode: '#bdbdbd',    // Additional light color
-        header: '#00000056', // Semi-transparent black for sections
-        teal: {
-          500: '#38b2ac', // Teal color for dark mode
-          700: '#2c7a7b'  // Teal color for light mode
-        },
+        darkMode: ' #151515 ',  
+        darkModeHeader: '#0c0c0c',
+        darkModeSidebar: '#1515',   
+        lightMode: '#fff',
+        alert: 'red',
+        blue: '#4c35ff',
       },
     },
   },
@@ -34,3 +24,5 @@ export default {
     require('@tailwindcss/aspect-ratio'),
   ],
 };
+
+// #D5303 
