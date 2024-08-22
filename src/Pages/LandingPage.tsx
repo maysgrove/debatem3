@@ -4,7 +4,7 @@ import UniversalFooter from '../components/Footer';
 import Tutorial from '../components/Tutorial';
 
 const LandingPage: React.FC = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [showTutorial, setShowTutorial] = useState(false);
 
@@ -34,7 +34,7 @@ const LandingPage: React.FC = () => {
   };
 
   return (
-    <div className={`flex flex-col h-[300vh] ${isDarkMode ? 'dark dark-mode-background text-white' : 'bg-lightMode text-black'}`}>
+    <div className={`flex flex-col h-[100vh] ${isDarkMode ? 'dark dark-mode-background text-white' : 'bg-lightMode text-black'}`}>
       <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
 
       <div className="h-full pt-[60px] relative">

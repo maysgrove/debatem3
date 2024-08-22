@@ -11,7 +11,7 @@ interface TutorialProps {
 }
 
 const Tutorial: React.FC<TutorialProps> = ({ user, onClose }) => {
-  const [currentPage, setCurrentPage] = useState(0); 
+  const [currentPage, setCurrentPage] = useState(0);
   const modalRef = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -57,11 +57,10 @@ const Tutorial: React.FC<TutorialProps> = ({ user, onClose }) => {
             <button
               key={index}
               onClick={() => setCurrentPage(index)}
-              className={`text-xs px-2 py-1 rounded-md transition-all ${
-                currentPage === index
-                  ? "bg-blue-500 text-white dark:bg-blue-400"
-                  : "bg-gray-300 text-gray-600 dark:bg-gray-600 dark:text-gray-300"
-              }`}
+              className={`text-xs px-2 py-1 rounded-md transition-all ${currentPage === index
+                ? "bg-blue-500 text-white dark:bg-blue-400"
+                : "bg-gray-300 text-gray-600 dark:bg-gray-600 dark:text-gray-300"
+                }`}
               style={{ minWidth: "60px" }} // Smaller width for breadcrumbs
             >
               {page.title}
@@ -70,7 +69,7 @@ const Tutorial: React.FC<TutorialProps> = ({ user, onClose }) => {
         </nav>
 
         {/* Tutorial Page Content */}
-        <div className="text-center flex-1 overflow-y-auto">
+        <div className="text-center bg-green-400 flex-1 overflow-y-auto">
           {pages[currentPage].content}
         </div>
 
@@ -79,11 +78,10 @@ const Tutorial: React.FC<TutorialProps> = ({ user, onClose }) => {
           <button
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 0))}
             disabled={currentPage === 0}
-            className={`px-4 py-2 rounded-lg transition-colors ${
-              currentPage === 0
-                ? "bg-gray-300 text-gray-600 cursor-not-allowed dark:bg-gray-700 dark:text-gray-400"
-                : "bg-blue-500 text-white hover:bg-blue-600 dark:bg-blue-400 dark:hover:bg-blue-500"
-            }`}
+            className={`px-4 py-2 rounded-lg transition-colors ${currentPage === 0
+              ? "bg-gray-300 text-gray-600 cursor-not-allowed dark:bg-gray-700 dark:text-gray-400"
+              : "bg-blue-500 text-white hover:bg-blue-600 dark:bg-blue-400 dark:hover:bg-blue-500"
+              }`}
           >
             Previous
           </button>
@@ -92,11 +90,10 @@ const Tutorial: React.FC<TutorialProps> = ({ user, onClose }) => {
               setCurrentPage((prev) => Math.min(prev + 1, pages.length - 1))
             }
             disabled={currentPage === pages.length - 1}
-            className={`px-4 py-2 rounded-lg transition-colors ${
-              currentPage === pages.length - 1
-                ? "bg-gray-300 text-gray-600 cursor-not-allowed dark:bg-gray-700 dark:text-gray-400"
-                : "bg-blue-500 text-white hover:bg-blue-600 dark:bg-blue-400 dark:hover:bg-blue-500"
-            }`}
+            className={`px-4 py-2 rounded-lg transition-colors ${currentPage === pages.length - 1
+              ? "bg-gray-300 text-gray-600 cursor-not-allowed dark:bg-gray-700 dark:text-gray-400"
+              : "bg-blue-500 text-white hover:bg-blue-600 dark:bg-blue-400 dark:hover:bg-blue-500"
+              }`}
           >
             Next
           </button>
