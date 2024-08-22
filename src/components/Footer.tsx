@@ -10,7 +10,7 @@ interface FooterProps {
   toggleDarkMode: () => void;
 }
 
-const Footer: React.FC<FooterProps> = ({ isDarkMode, toggleDarkMode }) => {
+const Footer: React.FC<FooterProps> = ({ isDarkMode }) => {
   const columns = [
     {
       title: 'Community',
