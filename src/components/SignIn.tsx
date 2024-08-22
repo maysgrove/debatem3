@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import './SignIn.css';
 
 interface GetStartedProps {
   isOpen: boolean;

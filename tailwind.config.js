@@ -8,21 +8,26 @@ export default {
   theme: {
     extend: {
       colors: {
-        darkMode: ' #151515 ',  
+        // Dynamic colors for dark mode
+        darkMode: '#151515',  
         darkModeHeader: '#0c0c0c',
-        darkModeSidebar: '#1515',   
-        lightMode: '#fff',
-        alert: 'red',
-        blue: '#4c35ff',
+        darkModeSidebar: '#1f1f1f',
+        darkModeText: '#e5e5e5',
+        
+        // Dynamic colors for light mode
+        lightMode: '#ffffff',
+        lightModeHeader: '#f0f0f0',
+        lightModeSidebar: '#f9f9f9',
+        lightModeText: '#333333',
+        
+        // Custom alert and action colors
+        alert: '#ff0033',
+        primary: '#4c35ff',
+        secondary: '#ff7e35',
       },
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
   ],
 };
-
-// #D5303 

@@ -3,12 +3,11 @@ import { FaSun, FaMoon } from 'react-icons/fa'; // Import icons
 import SignIn from './SignIn';
 
 interface UniversalHeaderProps {
-  sidebarOpen: boolean;
   isDarkMode: boolean;
   toggleDarkMode: () => void;
 }
 
-const Header: React.FC<UniversalHeaderProps> = ({ sidebarOpen, isDarkMode, toggleDarkMode }) => {
+const Header: React.FC<UniversalHeaderProps> = ({ isDarkMode, toggleDarkMode }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => {
@@ -19,9 +18,7 @@ const Header: React.FC<UniversalHeaderProps> = ({ sidebarOpen, isDarkMode, toggl
     <header
       className={`fixed top-0 left-0 h-[60px] w-full flex items-center justify-between ${
         isDarkMode ? 'bg-darkModeHeader text-white' : 'bg-gray-100 text-black'
-      } shadow-[inset_0_0px_3px_rgba(0,0,0,0.6)] px-4 py-2 transition-transform duration-300 ease-in-out ${
-        sidebarOpen ? 'pl-60' : 'pl-20'
-      }`}
+      } shadow-[inset_0_0px_3px_rgba(0,0,0,0.6)] px-4 py-2 transition-transform duration-300 ease-in-out`}
       style={{ zIndex: 11 }}
     >
       <h1 className="text-2xl lg:text-3xl font-semibold">

@@ -1,5 +1,5 @@
 {
-  "name": "non_oblitus",
+  "name": "debateme",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -41,8 +41,12 @@
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
   },
-  "description": "Non oblitus",
+  "description": "debateme",
   "main": "main.tsx",
   "author": "peyton \"pt\" thompson",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "debateme"
+  }
 }

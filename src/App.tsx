@@ -4,15 +4,17 @@ PRIMARY_2 #ff0055   #292929                      OLD_BG #40414b;
 PRIMARY_3 #adff2f                         OLD_OVERLAY rgba(0, 0, 0, 0.404);
 */
 
+
+import './main.css';
+
 // Normal Imports
 import { Route, Routes } from "react-router-dom";
 
 // Routes
 import { Dashboard } from "./Pages/Dashboard";
 import { ErrorPage } from "./Pages/ErrorPage";
-import { DebateDefault } from "./Pages/DebateDefault";
 import LandingPage from "./Pages/LandingPage";
-import './main.css';
+
 
 export const App = () => {
   return (
@@ -20,7 +22,6 @@ export const App = () => {
       <Routes>
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/" element={<LandingPage />} />
-        <Route path="/DebateDefault" element={<DebateDefault />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>

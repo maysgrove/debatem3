@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import UniversalFooter from '../components/Footer';
-import Sidebar from '../components/Sidebar';
-import { HiMenuAlt3 } from 'react-icons/hi';
+import Tutorial from '../components/Tutorial';
 
 const LandingPage: React.FC = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [showTutorial, setShowTutorial] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,39 +29,39 @@ const LandingPage: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const toggleTutorial = () => {
+    setShowTutorial((prev) => !prev);
+  };
+
   return (
     <div className={`flex flex-col h-[300vh] ${isDarkMode ? 'dark dark-mode-background text-white' : 'bg-lightMode text-black'}`}>
-      <Header sidebarOpen={sidebarOpen} isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+      <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
 
       <div className="h-full pt-[60px] relative">
-        <div
-          role="navigation"
-          aria-label="Sidebar navigation"
-          className={`fixed top-[-8px] left-0 h-full transition-transform duration-300 ease-in-out ${isDarkMode ? 'bg-darkMode' : 'bg-lightMode'} border-r-2 border-gray-700 ${sidebarOpen ? 'w-52' : 'w-16'}`}
-          style={{ zIndex: 100 }}
-        >
-          <Sidebar open={sidebarOpen} isDarkMode={isDarkMode} />
-          <div className="absolute top-3 flex items-center">
-            <button
-              onClick={() => setSidebarOpen((prev) => !prev)}
-              className="cursor-pointer flex items-center justify-center px-2 py-1 rounded-full transition-colors duration-300"
-              aria-label={sidebarOpen ? 'Close Sidebar' : 'Open Sidebar'}
-              aria-expanded={sidebarOpen}
-              aria-controls="sidebar"
-            >
-              <HiMenuAlt3 fill="currentColor" size={40} />
-            </button>
-            {sidebarOpen && (
-              <span className={`ml-2 ${isDarkMode ? 'text-white' : 'text-black'}`}>
-                Welcome Guest
-              </span>
-            )}
-          </div>
-        </div>
-
-        <main className={`transition-margin h-full ease-in-out flex-1 p-4 ${sidebarOpen ? 'ml-52' : 'ml-16'} ${isDarkMode ? 'bg-darkMode' : 'bg-lightMode'}`}>
+        <main className={`h-full flex-1 p-4 ${isDarkMode ? 'bg-darkMode' : 'bg-lightMode'}`}>
           {/* Main content goes here */}
-            
+
+          {/* Toggle Tutorial Button */}
+          <button
+            onClick={toggleTutorial}
+            className="p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+          >
+            {showTutorial ? 'Hide Tutorial' : 'Show Tutorial'}
+          </button>
+
+          {/* Tutorial Component */}
+          {showTutorial && (
+            <Tutorial
+              user={{
+                DEBATE_NAME: "Sample Debate",
+                STREAMER_NAME: "Guest",
+                STREAMER_PROFILE_PIC: "path/to/profile-pic.jpg",
+                TOTAL_VIEWS: 1000
+              }} 
+              onClose={() => setShowTutorial(false)} 
+            />
+          )}
+
           {/* Scroll to Top Button */}
           {showBackToTop && (
             <button
@@ -75,7 +74,7 @@ const LandingPage: React.FC = () => {
           )}
         </main>
       </div>
-      <UniversalFooter sidebarOpen={sidebarOpen} isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+      <UniversalFooter isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode}/>
     </div>
   );
 };
