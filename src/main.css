@@ -37,3 +37,29 @@ html {
 .fade-in {
   animation: fadeInLeftToRight 600ms ease-out forwards;
 }
+
+
+.slick-slide {
+  padding: 0px 5px;
+}
+
+/* styles.css */
+.slick-dots {
+  bottom: 10px; /* Adjust the position of the dots */
+
+}
+
+.slick-dots li button {
+  background-color: whitesmoke; /* Default dot color */
+}
+
+
+.slick-dots button:before {
+  font-size: 10px; /* Adjust size if necessary */
+  color: #ffffff; /* Dot color */
+  opacity: 1; /* Make sure the dots are fully visible */
+  color: white;
+  fill: white;
+  background: white;
+  background-color: white;
+}
