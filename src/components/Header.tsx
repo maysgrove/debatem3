@@ -30,7 +30,7 @@ const Header: React.FC<UniversalHeaderProps> = ({ isDarkMode, toggleDarkMode }) 
   return (
     <header
       className={`fixed top-0 left-0 h-[60px] w-full flex items-center justify-between ${
-        isDarkMode ? 'bg-[#2e30b6] text-white' : 'bg-lightModeHeader text-black'
+        isDarkMode ? 'bg-[#0c0c0c] text-white' : 'bg-lightModeHeader text-black'
       } shadow-[inset_0_0px_3px_rgba(0,0,0,0.6)] px-4 py-2 transition-transform duration-300 ease-in-out`}
       style={{ zIndex: 11 }}
     >

@@ -18,46 +18,31 @@ const Tutorial: React.FC<TutorialProps> = ({ user, onClose }) => {
     {
       title: "Introduction",
       content: (
-        <div>
-          <h2 className="text-2xl font-bold mb-4">Welcome</h2>
-          <p>This is an introduction to the tutorial. Let's get you ready to start debating!</p>
-        </div>
+        <p>This is an introduction to the tutorial. Let's get you ready to start debating!</p>
       ),
     },
     {
       title: "Create a Debate",
       content: (
-        <div>
-          <h2 className="text-2xl font-bold mb-4">Create a Debate</h2>
-          <p>Learn how to set up your first debate. You can choose 1v1, 2v2, or 3v3 formats.</p>
-        </div>
+        <p>Learn how to set up your first debate. You can choose 1v1, 2v2, or 3v3 formats.</p>
       ),
     },
     {
       title: "Join a Debate",
       content: (
-        <div>
-          <h2 className="text-2xl font-bold mb-4">Join a Debate</h2>
-          <p>Search for ongoing debates and join one that fits your interest.</p>
-        </div>
+        <p>Search for ongoing debates and join one that fits your interest.</p>
       ),
     },
     {
       title: "Watch Previous Debates",
       content: (
-        <div>
-          <h2 className="text-2xl font-bold mb-4">Watch Previous Debates</h2>
-          <p>Review past debates and learn from top debaters.</p>
-        </div>
+        <p>Review past debates and learn from top debaters.</p>
       ),
     },
     {
       title: "Conclusion",
       content: (
-        <div>
-          <h2 className="text-2xl font-bold mb-4">You're Ready!</h2>
-          <p>You've completed the tutorial. Start debating now!</p>
-        </div>
+        <p>You've completed the tutorial. Start debating now!</p>
       ),
     },
   ];
@@ -126,24 +111,12 @@ const Tutorial: React.FC<TutorialProps> = ({ user, onClose }) => {
           </div>
         </div>
 
-        {/* Breadcrumb Navigation */}
-        <nav className="mb-6 flex justify-center items-center space-x-4">
-          {pages.map((page, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentPage(index)}
-              className={`text-xs px-2 py-1 rounded-md transition-all ${
-                currentPage === index
-                  ? "bg-blue-500 text-white dark:bg-blue-400"
-                  : "bg-gray-300 text-gray-600 dark:bg-gray-600 dark:text-gray-300"
-              }`}
-              style={{ minWidth: "60px" }}
-              aria-current={currentPage === index ? "page" : undefined}
-            >
-              {page.title}
-            </button>
-          ))}
-        </nav>
+        {/* Title for each page */}
+        <div className="text-center mb-6">
+          <h2 id="tutorial-title" className="text-2xl font-bold">
+            {pages[currentPage].title}
+          </h2>
+        </div>
 
         {/* Tutorial Page Content */}
         <div id="tutorial-description" className="text-center flex-1">
