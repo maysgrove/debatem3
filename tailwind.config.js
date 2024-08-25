@@ -10,15 +10,11 @@ export default {
       colors: {
         // Dynamic colors for dark mode
         darkMode: '#151515',
-        darkModeHeader: '#0c0c0c',
-        darkModeSidebar: '#1f1f1f',
-        darkModeText: '#e5e5e5',
+        darkModeHeader: '#144222',
         
         // Dynamic colors for light mode
         lightMode: '#ffffff',
-        lightModeHeader: '#f0f0f0',
-        lightModeSidebar: '#f9f9f9',
-        lightModeText: '#333333',
+        lightModeHeader: '#fff',
         
         // Custom alert and action colors
         alert: '#ff0033',

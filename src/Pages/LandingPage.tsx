@@ -2,10 +2,26 @@ import React, { useState } from "react";
 import Slider from "react-slick";
 import Header from "../components/Header";
 import UniversalFooter from "../components/Footer";
+import Tutorial from "../components/Tutorial";  // Import the Tutorial component
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// Slick Carousel settings
+// Custom Arrow Component
+const CustomArrow = (props: any) => {
+  const { className, style, onClick, direction } = props;
+  return (
+    <button
+      className={`${className} slick-arrow ${
+        direction === "prev" ? "slick-prev" : "slick-next"
+      }`}
+      style={{ ...style, display: "block" }}
+      onClick={onClick}
+    >
+      {direction === "prev" ? "←" : "→"}
+    </button>
+  );
+};
+
 const carouselSettings = {
   dots: false,
   infinite: true,
@@ -13,8 +29,8 @@ const carouselSettings = {
   slidesToShow: 5,
   slidesToScroll: 1,
   arrows: true,
-  prevArrow: <button className="slick-prev">←</button>,
-  nextArrow: <button className="slick-next">→</button>,
+  prevArrow: <CustomArrow direction="prev" />,
+  nextArrow: <CustomArrow direction="next" />,
   responsive: [
     {
       breakpoint: 1600,
@@ -23,19 +39,19 @@ const carouselSettings = {
       },
     },
     {
-      breakpoint: 1000,
+      breakpoint: 1300,
       settings: {
         slidesToShow: 3,
       },
     },
     {
-      breakpoint: 900,
+      breakpoint: 1100,
       settings: {
         slidesToShow: 2,
       },
     },
     {
-      breakpoint: 700,
+      breakpoint: 510,
       settings: {
         slidesToShow: 1,
       },
@@ -47,15 +63,20 @@ const categories = ["Education", "Politics", "Entertainment", "Tech", "Science"]
 
 const LandingPage: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
+  const [showTutorial, setShowTutorial] = useState(false);  // Tutorial modal state
 
   const toggleDarkMode = () => {
     setIsDarkMode((prev) => !prev);
   };
 
+  const handleGetStartedClick = () => {
+    setShowTutorial(true);  // Open the tutorial modal
+  };
+
   return (
     <div
       className={`min-h-screen flex flex-col ${
-        isDarkMode ? "dark bg-gray-900 text-white" : "bg-white text-black"
+        isDarkMode ? "dark bg-gray-800 text-white" : "bg-white text-black"
       }`}
     >
       <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
@@ -71,7 +92,10 @@ const LandingPage: React.FC = () => {
           <p className="text-lg md:text-2xl mb-8 max-w-2xl mx-auto">
             Engage in lively debates, start new discussions, or catch up on live debates—all in one place.
           </p>
-          <button className="px-6 py-3 md:px-8 md:py-4 bg-white text-blue-600 rounded-full font-semibold shadow-md hover:bg-gray-100 transition-colors">
+          <button
+            className="px-6 py-3 md:px-8 md:py-4 bg-white text-blue-600 rounded-full font-semibold shadow-md hover:bg-gray-100 transition-colors"
+            onClick={handleGetStartedClick}  // Toggle tutorial on click
+          >
             Get Started
           </button>
         </div>
@@ -100,7 +124,7 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* Video Carousel Section */}
-      <section className="py-8 md:py-12 px-4 overflow-hidden">
+      <section className="py-4 md:py-12 px-4 overflow-hidden">
         <h2 className="text-2xl md:text-3xl mx-4 font-semibold text-left mb-6 md:mb-8">
           Featured Debates
         </h2>
@@ -138,6 +162,19 @@ const LandingPage: React.FC = () => {
       </section>
 
       <UniversalFooter isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+
+      {/* Tutorial Modal */}
+      {showTutorial && (
+        <Tutorial
+          user={{
+            DEBATE_NAME: "Example Debate",
+            STREAMER_NAME: "DebateHost",
+            STREAMER_PROFILE_PIC: "/src/assets/Skeletor.webp",
+            TOTAL_VIEWS: 100,
+          }}
+          onClose={() => setShowTutorial(false)}  // Close tutorial
+        />
+      )}
     </div>
   );
 };

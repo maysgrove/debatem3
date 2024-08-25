@@ -164,17 +164,20 @@ const Tutorial: React.FC<TutorialProps> = ({ user, onClose }) => {
             Previous
           </button>
           <button
-            onClick={() =>
-              setCurrentPage((prev) => Math.min(prev + 1, pages.length - 1))
-            }
-            disabled={currentPage === pages.length - 1}
+            onClick={() => {
+              if (currentPage === pages.length - 1) {
+                onClose();
+              } else {
+                setCurrentPage((prev) => Math.min(prev + 1, pages.length - 1));
+              }
+            }}
             className={`px-4 py-2 rounded-lg transition-colors ${
               currentPage === pages.length - 1
-                ? "bg-gray-300 text-gray-600 cursor-not-allowed dark:bg-gray-700 dark:text-gray-400"
+                ? "bg-blue-500 text-white hover:bg-blue-600 dark:bg-blue-400 dark:hover:bg-blue-500"
                 : "bg-blue-500 text-white hover:bg-blue-600 dark:bg-blue-400 dark:hover:bg-blue-500"
             }`}
           >
-            Next
+            {currentPage === pages.length - 1 ? "Finish" : "Next"}
           </button>
         </div>
       </div>
