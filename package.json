@@ -1,5 +1,5 @@
 {
-  "name": "debateme",
+  "name": "mindbattle-frontend",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -17,6 +17,7 @@
     "@react-three/fiber": "^8.16.8",
     "@reduxjs/toolkit": "^2.2.7",
     "@tailwindcss/aspect-ratio": "^0.4.2",
+    "axios": "^1.7.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.2.1",
@@ -43,12 +44,12 @@
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
   },
-  "description": "debateme",
+  "description": "mindbattle-frontend",
   "main": "main.tsx",
   "author": "peyton \"pt\" thompson",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "debateme"
+    "url": "mindbattle-frontend"
   }
 }

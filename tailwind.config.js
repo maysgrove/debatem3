@@ -10,7 +10,7 @@ export default {
       colors: {
         // Dynamic colors for dark mode
         darkMode: '#151515',
-        darkModeHeader: '#144222',
+        darkModeHeader: '#151515',
         
         // Dynamic colors for light mode
         lightMode: '#ffffff',

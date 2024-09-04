@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 
+import CreateAccount from "./Tutorial Pages/CreateAccount";
+import CreateDebate from "./Tutorial Pages/CreateDebate";
+
 interface TutorialProps {
   user: {
     DEBATE_NAME: string;
@@ -16,33 +19,37 @@ const Tutorial: React.FC<TutorialProps> = ({ user, onClose }) => {
 
   const pages = [
     {
-      title: "Introduction",
+      title: "Create An Account",
       content: (
-        <p>This is an introduction to the tutorial. Let's get you ready to start debating!</p>
+        <div className="w-full h-full">
+          <CreateAccount />
+        </div>
       ),
     },
     {
       title: "Create a Debate",
       content: (
-        <p>Learn how to set up your first debate. You can choose 1v1, 2v2, or 3v3 formats.</p>
+        <div>
+          
+        </div>
       ),
     },
     {
       title: "Join a Debate",
       content: (
-        <p>Search for ongoing debates and join one that fits your interest.</p>
+        <div>Search for ongoing debates and join one that fits your interest.</div>
       ),
     },
     {
       title: "Watch Previous Debates",
       content: (
-        <p>Review past debates and learn from top debaters.</p>
+        <div>Review past debates and learn from top debaters.</div>
       ),
     },
     {
       title: "Conclusion",
       content: (
-        <p>You've completed the tutorial. Start debating now!</p>
+        <div>You've completed the tutorial. Start debating now!</div>
       ),
     },
   ];
@@ -90,7 +97,7 @@ const Tutorial: React.FC<TutorialProps> = ({ user, onClose }) => {
     >
       <div
         ref={modalRef}
-        className="relative bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-3xl w-full sm:w-11/12 lg:w-3/4 h-5/6"
+        className="relative bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-lg w-full sm:w-11/12 lg:w-3/4 h-5/6"
       >
         {/* Close Button */}
         <button
@@ -100,6 +107,13 @@ const Tutorial: React.FC<TutorialProps> = ({ user, onClose }) => {
         >
           &times;
         </button>
+
+        {/* Step Indicator */}
+        <div className="text-center mb-2">
+          <p className="text-sm text-gray-500 dark:text-gray-300">
+            Step {currentPage + 1} of {pages.length}
+          </p>
+        </div>
 
         {/* Progress Bar */}
         <div className="mb-6">
@@ -112,14 +126,14 @@ const Tutorial: React.FC<TutorialProps> = ({ user, onClose }) => {
         </div>
 
         {/* Title for each page */}
-        <div className="text-center mb-6">
+        <div className="text-center mb-4">
           <h2 id="tutorial-title" className="text-2xl font-bold">
             {pages[currentPage].title}
           </h2>
         </div>
 
         {/* Tutorial Page Content */}
-        <div id="tutorial-description" className="text-center flex-1">
+        <div id="tutorial-description" className="h-[82%] flex-1">
           {pages[currentPage].content}
         </div>
 

@@ -1,77 +1,35 @@
-import React, { useState } from "react";
-import Slider from "react-slick";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+// Component Imports
 import Header from "../components/Header";
 import UniversalFooter from "../components/Footer";
-import Tutorial from "../components/Tutorial";  // Import the Tutorial component
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
-// Custom Arrow Component
-const CustomArrow = (props: any) => {
-  const { className, style, onClick, direction } = props;
-  return (
-    <button
-      className={`${className} slick-arrow ${
-        direction === "prev" ? "slick-prev" : "slick-next"
-      }`}
-      style={{ ...style, display: "block" }}
-      onClick={onClick}
-    >
-      {direction === "prev" ? "←" : "→"}
-    </button>
-  );
-};
-
-const carouselSettings = {
-  dots: false,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 5,
-  slidesToScroll: 1,
-  arrows: true,
-  prevArrow: <CustomArrow direction="prev" />,
-  nextArrow: <CustomArrow direction="next" />,
-  responsive: [
-    {
-      breakpoint: 1600,
-      settings: {
-        slidesToShow: 4,
-      },
-    },
-    {
-      breakpoint: 1300,
-      settings: {
-        slidesToShow: 3,
-      },
-    },
-    {
-      breakpoint: 1100,
-      settings: {
-        slidesToShow: 2,
-      },
-    },
-    {
-      breakpoint: 510,
-      settings: {
-        slidesToShow: 1,
-      },
-    },
-  ],
-};
-
-const categories = ["Education", "Politics", "Entertainment", "Tech", "Science"];
+import Tutorial from "../components/Tutorial"; //tutorial modal
+import Carousel from "../components/Carousel"; 
 
 const LandingPage: React.FC = () => {
+  
+  // DARK MODE STATE AND EFFECT
   const [isDarkMode, setIsDarkMode] = useState(true);
-  const [showTutorial, setShowTutorial] = useState(false);  // Tutorial modal state
+    const toggleDarkMode = () => {
+      setIsDarkMode((prev) => !prev);
+    };
 
-  const toggleDarkMode = () => {
-    setIsDarkMode((prev) => !prev);
-  };
+  // TUTORIAL STATE AND EFFECT
+  const [showTutorial, setShowTutorial] = useState(false); // Tutorial modal state
+    const handleGetStartedClick = () => {
+      setShowTutorial(true); // Open the tutorial modal
+    };
 
-  const handleGetStartedClick = () => {
-    setShowTutorial(true);  // Open the tutorial modal
-  };
+  // WATER STATE AND EFFECT
+  const [myWater, SetMyWater] = useState<string[]>([]); // state to hold water
+    useEffect(() => {
+      const myWater = async () => {
+        const response = await axios.get("http://localhost:4040/myWater");
+        SetMyWater(response.data.fruits);
+      };
+      myWater();
+    }, []);
 
   return (
     <div
@@ -88,16 +46,25 @@ const LandingPage: React.FC = () => {
         }`}
       >
         <div className="text-center mt-20">
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-4">Debate Me</h1>
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-4">Mind Battle</h1>
           <p className="text-lg md:text-2xl mb-8 max-w-2xl mx-auto">
             Engage in lively debates, start new discussions, or catch up on live debates—all in one place.
           </p>
           <button
             className="px-6 py-3 md:px-8 md:py-4 bg-white text-blue-600 rounded-full font-semibold shadow-md hover:bg-gray-100 transition-colors"
-            onClick={handleGetStartedClick}  // Toggle tutorial on click
+            onClick={handleGetStartedClick} // Toggle tutorial on click
           >
             Get Started
           </button>
+
+          {/* Map the fruits and display them in the hero section */}
+          <ul className="list-none">
+            {myWater.map((myWater, index) => (
+              <li key={index} className="text-lg">
+                {myWater}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -129,41 +96,11 @@ const LandingPage: React.FC = () => {
           Featured Debates
         </h2>
 
-        {categories.map((category, index) => (
-          <div key={index} className="mb-8 mx-4">
-            <h3 className="text-xl font-semibold mb-4">{category}</h3>
-            <Slider className="p-4" {...carouselSettings}>
-              {[...Array(10)].map((_, idx) => (
-                <div
-                  key={idx}
-                  className="relative w-full pb-[56.25%] bg-gray-200 dark:bg-gray-800 rounded-lg overflow-hidden"
-                >
-                  <img
-                    src="/src/assets/Debate Thumbnails/bidenVtrump.webp"
-                    alt="Video Thumbnail"
-                    className="absolute inset-0 w-full h-full object-cover rounded-lg"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black via-transparent to-transparent text-white">
-                    <h4 className="text-sm md:text-base font-semibold mb-1">Debate Title</h4>
-                    <div className="flex items-center">
-                      <img
-                        src="/src/assets/Skeletor.webp"
-                        alt="Channel Pic"
-                        className="w-6 h-6 md:w-8 md:h-8 rounded-full mr-2"
-                      />
-                      <span className="text-xs md:text-sm">NEWS4U</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </Slider>
-          </div>
-        ))}
+        <Carousel />
       </section>
 
       <UniversalFooter isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
 
-      {/* Tutorial Modal */}
       {showTutorial && (
         <Tutorial
           user={{
@@ -172,11 +109,11 @@ const LandingPage: React.FC = () => {
             STREAMER_PROFILE_PIC: "/src/assets/Skeletor.webp",
             TOTAL_VIEWS: 100,
           }}
-          onClose={() => setShowTutorial(false)}  // Close tutorial
+          onClose={() => setShowTutorial(false)} // Close tutorial
         />
       )}
     </div>
   );
 };
 
-export default LandingPage;
+export default LandingPage; 
