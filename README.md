@@ -1,7 +1,7 @@
-# Debate.me Website
+# MindBattle
 
 ## Overview
-Welcome to the Debate.me website! This application allows users to engage in and explore various debates on different topics. The app features a sleek, modern design with a dark theme by default and numerous interactive elements to enhance the user experience.
+Welcome to the MindBattle! This site allows users to engage in and explore various debates on different topics. The app features a sleek, modern design with a dark theme by default and numerous interactive elements to enhance the user experience.
 
 ## Created By
 Peyton "PT" Thompson  
@@ -48,7 +48,7 @@ The `Header` component includes:
 - **Styling:** Gradient backgrounds, shadow effects, responsive behavior.
 
 ### `LandingPage`
-- **Hero Section:** Features the site title, "Debate Me," along with a call-to-action button.
+- **Hero Section:** Features the site title, "MindBattle," along with a call-to-action button.
 - **Cards Section:** Features 3 cards that highlight options to join, create, or watch debates.
 - **Video Carousel Section:** A video carousel showcasing debates across categories like Education, Politics, and Tech.
 - **Tutorial Modal:** The tutorial modal guides new users through site features.
