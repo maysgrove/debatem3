@@ -13,7 +13,7 @@ export default {
         darkModeHeader: '#151515',
         
         // Dynamic colors for light mode
-        lightMode: '#ffffff',
+        lightMode: 'rgb(229 229 229);',
         lightModeHeader: '#fff',
         
         // Custom alert and action colors

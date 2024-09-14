@@ -60,7 +60,7 @@ const Footer: React.FC<FooterProps> = ({ isDarkMode }) => {
   return (
     <footer
       className={`py-4 transition-transform duration-300 ease-in-out ${
-        isDarkMode ? "bg-darkMode text-white" : "bg-gray-100 text-black"
+        isDarkMode ? "bg-darkMode text-white" : "bg-lightMode text-black"
       }`}
     >
       {/* Top Border */}
@@ -105,7 +105,7 @@ const Footer: React.FC<FooterProps> = ({ isDarkMode }) => {
       </div>
 
       {/* Copyright Section */}
-      <div className="border-t border-gray-600 pt-4 text-center text-sm mt-6">
+      <div className="border-t font-bold border-gray-600 pt-4 text-center text-md mt-6">
         <p className="text-center mx-4 sm:mx-0" aria-live="polite">
           &copy; {new Date().getFullYear()} Debate Me. All rights reserved.
         </p>

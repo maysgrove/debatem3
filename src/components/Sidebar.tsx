@@ -33,13 +33,12 @@ const Sidebar: React.FC<SidebarProps> = ({ open, isDarkMode }) => {
 
   return (
     <div
-      className={`fixed top-0 left-0 h-screen ${
+      className={`fixed top-0 left-0 h-screen bg-darkMode ${
         isDarkMode ? 'bg-darkModeSidebar text-white' : 'bg-lightMode text-black'
       } border-r-2 border-gray-700 transition-transform duration-800 ${
         open ? 'w-52' : 'w-16'
-      } flex flex-col py-4 px-2`}
+      } flex flex-col py-4 px-2 z-30`} // Added z-index here
     >
-
       <div className="flex-grow flex flex-col mt-12 space-y-4">
         {menuItems.map((item, index) => (
           <React.Fragment key={item.name}>
@@ -63,7 +62,7 @@ const Sidebar: React.FC<SidebarProps> = ({ open, isDarkMode }) => {
                 <span className={`ml-4 ${!open ? 'sr-only' : ''}`}>{item.name}</span>
               </Link>
               {!open && hoveredItem === item.name && (
-                <div className="absolute left-14 text-nowrap text-sm bg-gray-700 font-semibold text-white rounded-md px-2 py-1 pointer-events-none">
+                <div className="absolute left-14 text-nowrap text-sm bg-gray-700 font-semibold text-white rounded-md px-2 py-1 pointer-events-none z-40">
                   {item.name}
                 </div>
               )}

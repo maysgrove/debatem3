@@ -1,7 +1,7 @@
 # Debate.me Website
 
 ## Overview
-Welcome to the Debate.me website! This application allows users to engage in and explore various debates on different topics. The app includes a sleek, modern design with a dark theme by default and numerous interactive elements to enhance the user experience.
+Welcome to the Debate.me website! This application allows users to engage in and explore various debates on different topics. The app features a sleek, modern design with a dark theme by default and numerous interactive elements to enhance the user experience.
 
 ## Created By
 Peyton "PT" Thompson  
@@ -14,14 +14,22 @@ Peyton "PT" Thompson
 - **Tailwind CSS**
 - **React Router**
 - **React Slick Carousel**
+- **Framer Motion**: For animations
+- **@mui/material**: For UI components
+- **@emotion/react** and **@emotion/styled**: For styling
+- **@react-three/fiber**: For 3D graphics
 
 ### Backend
-- **PostgreSQL**
+- **PostgreSQL**: For database management
 
 ### Dev Tools
-- **Prettier**
-- **ESLint**
-- **Babel** with `plugin-proposal-optional-chaining`
+- **Vite**: Fast build tool and development server
+- **Prettier**: Code formatter
+- **ESLint**: Linting tool
+- **Babel**: JavaScript compiler with plugins
+- **TypeScript**: For static type checking
+- **PostCSS**: Tool for transforming CSS
+- **Autoprefixer**: Adds vendor prefixes to CSS
 
 ## Features
 - **Debate Formats:** 1v1, 2v2, 3v3 formats.
@@ -40,14 +48,13 @@ The `Header` component includes:
 - **Styling:** Gradient backgrounds, shadow effects, responsive behavior.
 
 ### `LandingPage`
-- **Hero Section:** Features the site title, "Debate Me," along with a call to action button.
+- **Hero Section:** Features the site title, "Debate Me," along with a call-to-action button.
 - **Cards Section:** Features 3 cards that highlight options to join, create, or watch debates.
 - **Video Carousel Section:** A video carousel showcasing debates across categories like Education, Politics, and Tech.
 - **Tutorial Modal:** The tutorial modal guides new users through site features.
 
 ### `UniversalFooter`
 A footer at the bottom of the page, styled to match the dark theme with smooth transitions. It contains navigation links and information about the website.
-
 
 ## Future Updates
 - **Expand Backend:** Integrate backend features for authentication, user profiles, and debate data storage with PostgreSQL.

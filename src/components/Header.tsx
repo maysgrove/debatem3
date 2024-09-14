@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { FaSun, FaMoon, FaSearch, FaTimes } from 'react-icons/fa'; // Import icons
+import { FaSun, FaMoon, FaSearch, FaTimes, FaBars } from 'react-icons/fa'; // Import icons
 import SignIn from './SignIn';
+import { motion } from 'framer-motion';
 
 interface UniversalHeaderProps {
   isDarkMode: boolean;
   toggleDarkMode: () => void;
+  toggleSidebar: () => void; // Add this prop
 }
 
-const Header: React.FC<UniversalHeaderProps> = ({ isDarkMode, toggleDarkMode }) => {
+const Header: React.FC<UniversalHeaderProps> = ({ isDarkMode, toggleDarkMode, toggleSidebar }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -28,12 +30,23 @@ const Header: React.FC<UniversalHeaderProps> = ({ isDarkMode, toggleDarkMode }) 
   }, []);
 
   return (
-    <header
+    <motion.header
       className={`fixed top-0 left-0 h-[60px] w-full flex items-center justify-between ${
-        isDarkMode ? 'bg-darkModeHeader text-white' : 'bg-lightModeHeader text-black'
-      } shadow-[inset_0_0px_3px_rgba(0,0,0,0.6)] px-4 py-2 transition-transform duration-300 ease-in-out`}
-      style={{ zIndex: 11 }}
+        isDarkMode ? 'bg-darkMode text-white' : 'bg-lightMode text-black'
+      } shadow-[inset_0_0px_3px_rgba(0,0,0,0.6)] px-4 py-2 transition-transform duration-300 ease-in-out z-40`}
+      initial={{ opacity: 0 }} // Initial state for animation
+      animate={{ opacity: 1 }} // Final state for animation
+      transition={{ duration: 0.5 }} // Transition duration
     >
+      {/* Sidebar Toggle Button */}
+      <button
+        onClick={toggleSidebar}
+        className="mr-4"
+        aria-label="Toggle Sidebar"
+      >
+        <FaBars className={isDarkMode ? 'text-white' : 'text-black'} size={24} />
+      </button>
+
       {isSearchOpen ? (
         // Only show the search bar when isSearchOpen is true
         <div className="flex-grow flex items-center w-full">
@@ -122,7 +135,7 @@ const Header: React.FC<UniversalHeaderProps> = ({ isDarkMode, toggleDarkMode }) 
           <SignIn onClose={() => setIsModalOpen(false)} isOpen={isModalOpen} />
         </div>
       )}
-    </header>
+    </motion.header>
   );
 };
 
