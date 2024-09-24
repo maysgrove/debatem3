@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 
 import CreateAccount from "./Tutorial Pages/CreateAccount";
-import CreateDebate from "./Tutorial Pages/CreateDebate";
 
 interface TutorialProps {
   user: {

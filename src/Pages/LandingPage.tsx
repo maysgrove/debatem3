@@ -20,11 +20,16 @@ const LandingPage: React.FC = () => {
     setShowTutorial(true);
   };
 
-  const [isLoggedIn, setIsLoggedIn] = useState(true); // Add this line
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+  // Function to toggle login state
+  const handleLoginToggle = () => {
+    setIsLoggedIn((prev) => !prev);
+  };
 
   return (
     <div className={`min-h-screen flex flex-col md:flex-row ${isDarkMode ? "dark bg-darkMode text-white" : "bg-lightMode text-black"}`}>
-      <Sidebar open={isSidebarOpen} isDarkMode={isDarkMode} isLoggedIn={isLoggedIn} /> {/* Pass isLoggedIn here */}
+      <Sidebar open={isSidebarOpen} isDarkMode={isDarkMode} isLoggedIn={isLoggedIn} />
 
       <div className={`flex-1 transition-transform duration-300 ${isSidebarOpen ? "ml-16 md:ml-52" : "ml-14"} p-2`}>
         <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} toggleSidebar={toggleSidebar} />
@@ -39,8 +44,15 @@ const LandingPage: React.FC = () => {
               Get Started
             </button>
           </div>
+
+          {/* Add Login/Logout Button */}
+          <button 
+            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-full" 
+            onClick={handleLoginToggle}
+          >
+            {isLoggedIn ? "Logout" : "Login"}
+          </button>
         </section>
-        
 
         <section className="py-8 px-4 sm:py-12 min-h-[400px]">
           <div className="flex flex-wrap justify-center gap-8">
@@ -49,7 +61,7 @@ const LandingPage: React.FC = () => {
         </section>
 
         <UniversalFooter isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
-        
+
         {showTutorial && <Tutorial user={{ DEBATE_NAME: "Example Debate", STREAMER_NAME: "DebateHost", STREAMER_PROFILE_PIC: "/src/assets/Skeletor.webp", TOTAL_VIEWS: 100 }} onClose={() => setShowTutorial(false)} />}
       </div>
     </div>
