@@ -9,12 +9,12 @@ export default {
     extend: {
       colors: {
         // Dynamic colors for dark mode
-        darkMode: '#151515',
-        darkModeHeader: '#151515',
+        darkMode: '#121212',
+        darkModeHeader: '#121212',
         
         // Dynamic colors for light mode
         lightMode: 'rgb(229 229 229);',
-        lightModeHeader: '#fff',
+        lightModeHeader: 'rgb(229 229 229)',
         
         // Custom alert and action colors
         alert: '#ff0033',
