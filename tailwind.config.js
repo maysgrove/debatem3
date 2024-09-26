@@ -8,17 +8,19 @@ export default {
   theme: {
     extend: {
       colors: {
+
+        primary: '#0c74d9',
+
         // Dynamic colors for dark mode
-        darkMode: '#121212',
-        darkModeHeader: '#121212',
+        darkMode: '#151515',
+        darkModeHS: '#191919',
         
         // Dynamic colors for light mode
-        lightMode: 'rgb(229 229 229);',
-        lightModeHeader: 'rgb(229 229 229)',
+        lightMode: '#E5E5E5;',
+        lightModeHS: '#F5F5F5',
         
         // Custom alert and action colors
         alert: '#ff0033',
-        primary: '#4c35ff',
         secondary: '#ff7e35',
       },
       fontFamily: {

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { FaSun, FaMoon, FaSearch, FaTimes, FaBars } from 'react-icons/fa'; 
-import SignIn from '../SignIn_PopUp';
 
 interface UniversalHeaderProps {
   isDarkMode: boolean;
@@ -9,11 +8,9 @@ interface UniversalHeaderProps {
 }
 
 const Header: React.FC<UniversalHeaderProps> = ({ isDarkMode, toggleDarkMode, toggleSidebar }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  const toggleModal = () => setIsModalOpen((prev) => !prev);
   const toggleSearch = () => setIsSearchOpen((prev) => !prev);
 
   useEffect(() => {
@@ -23,7 +20,7 @@ const Header: React.FC<UniversalHeaderProps> = ({ isDarkMode, toggleDarkMode, to
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 h-[55px] w-full flex items-center justify-between ${isDarkMode ? 'bg-darkModeHeader text-white' : 'bg-lightModeHeader text-black'} px-[14px] transition-transform duration-300 z-40`}>
+    <header className={`fixed top-0 left-0 h-[55px] w-full flex items-center justify-between ${isDarkMode ? 'bg-darkModeHS text-white' : 'bg-lightModeHS text-black'} px-[14px] transition-transform duration-300 z-40`}>
       <button onClick={toggleSidebar} className="mr-4" aria-label="Toggle Sidebar">
         <FaBars className={isDarkMode ? 'text-white' : 'text-black'} size={24} />
       </button>
@@ -44,7 +41,7 @@ const Header: React.FC<UniversalHeaderProps> = ({ isDarkMode, toggleDarkMode, to
             )}
           </div>
           <div className="flex items-center space-x-4">
-            <button onClick={toggleModal} className={`font-bold px-3 lg:px-4 h-8 lg:h-10 rounded text-md lg:text-base ${isDarkMode ? 'text-white' : 'text-black'}`}>Create Account</button>
+            <button className={`font-bold px-3 lg:px-4 h-8 lg:h-10 rounded text-md lg:text-base ${isDarkMode ? 'text-white' : 'text-black'}`}>Create Account</button>
             <button onClick={toggleSearch} className="block md:hidden" aria-label="Toggle Search">
               {isSearchOpen ? <FaTimes className={isDarkMode ? 'text-white' : 'text-black'} size={20} /> : <FaSearch className={isDarkMode ? 'text-white' : 'text-black'} size={20} />}
             </button>
@@ -53,12 +50,6 @@ const Header: React.FC<UniversalHeaderProps> = ({ isDarkMode, toggleDarkMode, to
             </button>
           </div>
         </>
-      )}
-
-      {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center z-50">
-          <SignIn onClose={() => setIsModalOpen(false)} isOpen={isModalOpen} />
-        </div>
       )}
     </header>
   );
